@@ -66,9 +66,7 @@ sumOfSquares x y = (x * x) + (y * y)
 --
 -- 🕯 HINT: use the @mod@ function
 lastDigit :: Int -> Int
-lastDigit n
-  | n `elem` [-10 .. 10] = abs n
-  | otherwise = lastDigit $ n `rem` 10
+lastDigit n = if abs n < 10 then abs n else lastDigit $ n `rem` 10
 
 -- | Write a function that takes three numbers and returns the
 -- difference between the biggest number and the smallest one.
@@ -84,7 +82,7 @@ lastDigit n
 minmax :: Int -> Int -> Int -> Int
 minmax x y z =
   let list = [x, y, z]
-   in abs $ maximum list - minimum list
+   in maximum list - minimum list
 
 -- | Implement a function that takes a string, start and end positions
 -- and returns a substring of a given string from the start position to
